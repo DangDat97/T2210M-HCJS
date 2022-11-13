@@ -1,0 +1,33 @@
+h1{
+    color: rgb(65, 38, 191);
+    color:#4126BFFF;
+}
+
+p{
+    color: black;
+    font-size: 15px;
+    font-family: "Times New Roman";
+    font-weight: 100;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    line-height: 1.5;
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 10px;
+    color: darkblue;
+    background-color: lavender;
+    width: 50px;
+}
+
+img{
+    width: 176px;
+    height: 240px;
+    padding: 10px;
+}
