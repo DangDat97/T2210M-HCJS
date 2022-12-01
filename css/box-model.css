@@ -1,0 +1,25 @@
+img{
+    max-width: 100%;
+}
+
+div{
+    width: calc(25% - 30px);
+    float: left;
+    margin: 5px 10px 15px 20px;
+    padding: 15px;
+    background-color: slateblue;
+    box-sizing: border-box;
+    /*border: 1px solid black; !*solid botted dashed*!*/
+    border-radius: 6px;
+    box-shadow: 2px 2px 15px blue;      /* Chiếu phải chiếu trái chỉ số roong và màu */
+    transition: all 300ms;
+
+
+}
+
+div:hover{
+   transform: scale(1.1) ;   
+   background-color: aqua;
+   transition-delay: 0.2s;
+}
+
