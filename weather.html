@@ -30,6 +30,14 @@
   </style>
 </head>
 <body>
+<select name="city" id="select_city" onchange="currentWeatherf()">
+    <option value="hanoi"> Hà Nội</option>
+    <option value="saigon">Tp Hồ Chí Minh</option>
+    <option value="new york"> New York</option>
+    <option value="beijing"> Bắc Kinh</option>
+</select>
+<input name="city" id="input_city" value="hanoi" type="text">
+<button onclick="currentWeatherf()">Ok</button>
 <section class="section">
   <div class="container">
     <div id="weather">
@@ -37,55 +45,72 @@
   </div>
 </section>
 <script type="text/javascript">
-//   var xhttp = new XMLHttpRequest();
-//   xhttp.onload = function (){
-//     var reuslut = this.responseText;
-//     var data = JSON.parse(reuslut);
-//     var datas = data.list;
-//     for (var i=0; i<datas.length;i++){
-//       var date=datas[i].dt_txt;
-//       var doc=datas[i].main.temp;
-//       var des=datas[i].weather[0].description;
-//       var icon=datas[i].weather[0].icon;
-//       document.getElementById("weather").innerHTML+=`<div>
-//         <p>${date}</p>
-//         <h2>${doc}</h2>
-//         <p>${des}</p>
-//         <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="">
-// </div>`;
-//     }
-//   }
-//   xhttp.open("GET","http://api.openweathermap.org/data/2.5/forecast?q=Hanoi,vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric");
-//   xhttp.send();
-fetch('./weather.json')
-    .then(
-        function(response) {
-            if (response.status !== 200) {
-                console.log('Lỗi, mã lỗi ' + response.status);
-                return;
-            }
-            // parse response data
-            response.json().then(data => {
+    function currentWeatherf() {
+        var ct = document.getElementById("input_city").value ;
+        console.log(ct);
 
-                var datas = data.list;
-                    for (var i=0; i<datas.length;i++){
-                          var date=datas[i].dt_txt;
-                          var doc=datas[i].main.temp;
-                          var des=datas[i].weather[0].description;
-                          var icon=datas[i].weather[0].icon;
-                          document.getElementById("weather").innerHTML+=`<div>
-                            <p>${date}</p>
-                            <h2>${doc}</h2>
-                            <p>${des}</p>
-                            <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="">
-                    </div>`;
-                    }
-            })
-        }
-    )
-    .catch(err => {
-        console.log('Error :-S', err)
-    });
+        xhttp.open("GET",`https://api.openweathermap.org/data/2.5/weather?q=${ct}&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`);
+        xhttp.send();
+    }
+
+
+    // function currentWeatherf(){
+    //     var xhttp = new XMLHttpRequest();
+    //     xhttp.onload = function (){
+    //         var reuslut = this.responseText;
+    //         var data = JSON.parse(reuslut);
+    //         var datas = data.list;
+    //
+    //         console.log(datas);
+    //         for (var i=0; i<datas.length;i++){
+    //             var date=datas[i].dt_txt;
+    //             var doc=datas[i].main.temp;
+    //             var des=datas[i].weather[0].description;
+    //             var icon=datas[i].weather[0].icon;
+    //             document.getElementById("weather").innerHTML+=`
+    //             <div>
+    //                     <p>${date}</p>
+    //                     <h2>${doc}</h2>
+    //                     <p>${des}</p>
+    //                     <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="">
+    //             </div>`;
+    //         }
+    //     }
+    //     var ct= document.getElementById("select_city").value;
+    //     console.log(ct);
+    //     xhttp.open("GET",`http://api.openweathermap.org/data/2.5/forecast?q=${ct}&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`);
+    //     xhttp.send();
+    // };
+    // currentWeatherf();
+// fetch('./weather.json')
+//     .then(
+//         function(response) {
+//             if (response.status !== 200) {
+//                 console.log('Lỗi, mã lỗi ' + response.status);
+//                 return;
+//             }
+//             // parse response data
+//             response.json().then(data => {
+//
+//                 var datas = data.list;
+//                     for (var i=0; i<datas.length;i++){
+//                           var date=datas[i].dt_txt;
+//                           var doc=datas[i].main.temp;
+//                           var des=datas[i].weather[0].description;
+//                           var icon=datas[i].weather[0].icon;
+//                           document.getElementById("weather").innerHTML+=`<div>
+//                             <p>${date}</p>
+//                             <h2>${doc}</h2>
+//                             <p>${des}</p>
+//                             <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="">
+//                     </div>`;
+//                     }
+//             })
+//         }
+//     )
+//     .catch(err => {
+//         console.log('Error :-S', err)
+//     });
 
 </script>
 </body>

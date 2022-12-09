@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      <div id="map" style="height: 500px">
+
+      </div>
+  <script>
+    let map;
+  var lat=0;
+  var long=0;
+
+  // định vị người dùng
+  navigator.geolocation.getCurrentPosition(function (position){
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+    initMap();
+
+    // console.log(lat);
+    // console.log(long);
+  })
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: lat, lng: long },
+        zoom: 17,
+      });
+    }
+
+    window.initMap = initMap;
+  </script>
+  <script
+          src="https://maps.googleapis.com/maps/api/js?callback=initMap&v=weekly"
+          defer
+  ></script>
+</body>
+</html>
